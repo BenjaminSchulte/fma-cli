@@ -1,0 +1,19 @@
+{
+  "name": "fma-cli",
+  "version": "0.5.1",
+  "description": "CLI script for famicom macro assembler",
+  "main": "index.js",
+  "bin": {
+    "fma": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "fma": "file:../fma",
+    "fma-snes65816": "file:../fma-snes65816"
+  },
+  "author": "Benjamin Schulte <benj@minschulte.de>",
+  "license": "MIT"
+}
