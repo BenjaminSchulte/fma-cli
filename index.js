@@ -10,7 +10,9 @@ var program = require('commander');
 program
   .version(config.version)
   .arguments('<file ...>')
-  .option('-I <dir ...>', 'Adds an include directory', collect, [])
+  .option('-I <dir>', 'Adds an include directory', collect, [])
+  .option('-D <dir>', 'Generates the documentation to a folder')
+  .option('--doc-package <name>', 'Includes a package when documentating the result', collect, [])
   .option('-s <file>', 'Output symbol files')
   .option('-o <file>', 'Specifies the output filename')
   .parse(process.argv)
@@ -50,3 +52,17 @@ if (program.S) {
   var writer = new fma65816.SymbolListWriter(result.getSymbols(), result.getCommands());
   fs.writeFileSync(program.S, writer.write());
 }
+
+if (program.D) {
+  var adoc = require('fma-adoc');
+  var generator = new adoc.DocumentationGenerator({
+    outputDir: program.D,
+    packages: program.docPackage
+  })
+
+  project.log('info', 'Generating documentation');
+  generator.add(interpreter.getRoot())
+  generator.generate();
+}
+
+project.log('info', 'Done.');

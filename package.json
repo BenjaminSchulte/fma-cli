@@ -12,6 +12,7 @@
   "dependencies": {
     "commander": "^2.11.0",
     "fma": "file:../fma",
+    "fma-adoc": "file:../fma-adoc",
     "fma-snes65816": "file:../fma-snes65816"
   },
   "author": "Benjamin Schulte <benj@minschulte.de>",
