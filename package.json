@@ -1,7 +1,8 @@
 {
   "name": "fma-cli",
-  "version": "0.5.1",
+  "version": "0.2.1",
   "description": "CLI script for famicom macro assembler",
+  "keywords": ["snes", "famicom", "macro", "assembler", "compiler", "nintendo"],
   "main": "index.js",
   "bin": {
     "fma": "./index.js"
@@ -11,10 +12,18 @@
   },
   "dependencies": {
     "commander": "^2.11.0",
-    "fma": "file:../fma",
-    "fma-adoc": "file:../fma-adoc",
-    "fma-snes65816": "file:../fma-snes65816"
+    "fma": "^0.2.1",
+    "fma-adoc": "^0.2.1",
+    "fma-snes65816": "^0.5.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenjaminSchulte/fma-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BenjaminSchulte/fma-cli/issues"
+  },
+  "homepage": "https://github.com/BenjaminSchulte/fma-cli#readme",
   "author": "Benjamin Schulte <benj@minschulte.de>",
   "license": "MIT"
 }

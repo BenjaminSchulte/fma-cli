@@ -12,7 +12,7 @@ Installation
 To install FMA you need to have NPM installed. Then simply call:
 
 ```bash
-npm install -g fma
+npm install -g fma-cli
 ```
 
 Usage
