@@ -41,28 +41,34 @@ for (let file of program.args) {
 
 project.log('info', 'Linking application');
 var linker = new fma.Linker(project);
-linker.addObject(interpreter.buildObject())
+interpreter.buildObject((err, object) => {
+  if (err) {
+    throw err;
+  }
 
-var result = linker.link();
-project.log('info', 'Writing binary');
-fs.writeFileSync(program.O || 'a.sfc', result.getBinary());
+  linker.addObject(object);
 
-if (program.S) {
-  project.log('info', 'Writing symbol file');
-  var writer = new fma65816.SymbolListWriter(result.getSymbols(), result.getCommands());
-  fs.writeFileSync(program.S, writer.write());
-}
+  var result = linker.link();
+  project.log('info', 'Writing binary');
+  fs.writeFileSync(program.O || 'a.sfc', result.getBinary());
 
-if (program.D) {
-  var adoc = require('fma-adoc');
-  var generator = new adoc.DocumentationGenerator({
-    outputDir: program.D,
-    packages: program.docPackage
-  })
+  if (program.S) {
+    project.log('info', 'Writing symbol file');
+    var writer = new fma65816.SymbolListWriter(result.getSymbols(), result.getCommands());
+    fs.writeFileSync(program.S, writer.write());
+  }
 
-  project.log('info', 'Generating documentation');
-  generator.add(interpreter.getRoot())
-  generator.generate();
-}
+  if (program.D) {
+    var adoc = require('fma-adoc');
+    var generator = new adoc.DocumentationGenerator({
+      outputDir: program.D,
+      packages: program.docPackage
+    })
 
-project.log('info', 'Done.');
+    project.log('info', 'Generating documentation');
+    generator.add(interpreter.getRoot())
+    generator.generate();
+  }
+
+  project.log('info', 'Done.');
+})
