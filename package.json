@@ -2,7 +2,14 @@
   "name": "fma-cli",
   "version": "0.2.4",
   "description": "CLI script for famicom macro assembler",
-  "keywords": ["snes", "famicom", "macro", "assembler", "compiler", "nintendo"],
+  "keywords": [
+    "snes",
+    "famicom",
+    "macro",
+    "assembler",
+    "compiler",
+    "nintendo"
+  ],
   "main": "index.js",
   "bin": {
     "fma": "./index.js"
