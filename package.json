@@ -1,6 +1,6 @@
 {
   "name": "fma-cli",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "CLI script for famicom macro assembler",
   "keywords": [
     "snes",
@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "commander": "^2.11.0",
-    "fma": "^0.2.5",
+    "fma": "^0.3.0",
     "fma-adoc": "^0.2.1",
-    "fma-snes65816": "^0.5.6"
+    "fma-snes65816": "^0.6.0"
   },
   "repository": {
     "type": "git",
